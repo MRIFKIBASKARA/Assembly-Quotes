@@ -1,4 +1,4 @@
-# 💬 Implementasi Pemilihan Quote Menggunakan Assembly x86
+![image](https://github.com/user-attachments/assets/01efc174-92ef-4b17-b9cb-e1d6312a4b01)# 💬 Implementasi Pemilihan Quote Menggunakan Assembly x86
 
 ## Deskripsi  
 Program ini dibuat menggunakan bahasa **Assembly NASM (x86 32-bit)** dan berfungsi untuk menampilkan **kutipan motivasi (quote)** berdasarkan input angka dari pengguna (1–5). Jika input berada di luar rentang tersebut, maka program akan menampilkan **pesan error**.
@@ -35,6 +35,14 @@ Program ini dibuat menggunakan bahasa **Assembly NASM (x86 32-bit)** dan berfung
 
 ---
 
+## I/O Gambar
+
+Berikut adalah contoh tampilan **I/O** yang menunjukkan proses input angka dari pengguna dan keluaran quote yang sesuai:
+
+![Contoh I/O Gambar](![Uploading Screenshot 2025-04-14 151659.png…]()
+)
+
+---
 ## Tujuan Pembelajaran  
 
 - **Memahami pemrograman low-level** dengan Assembly  

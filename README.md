@@ -39,7 +39,8 @@ Program ini dibuat menggunakan bahasa **Assembly NASM (x86 32-bit)** dan berfung
 
 Berikut adalah contoh tampilan **I/O** yang menunjukkan proses input angka dari pengguna dan keluaran quote yang sesuai:
 
-![Contoh I/O Gambar](!![image](https://github.com/user-attachments/assets/01efc174-92ef-4b17-b9cb-e1d6312a4b01)()
+![Contoh I/O Gambar](!![image](![Screenshot 2025-04-14 152259](https://github.com/user-attachments/assets/4a609697-d485-4b64-9ee5-cdd2f3789db1)
+)()
 
 
 ---

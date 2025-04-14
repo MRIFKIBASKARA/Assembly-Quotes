@@ -1,0 +1,76 @@
+section .data
+    prompt db "Pilih nomor quote (1-5): ", 0
+    quote1 db "1. Teruslah mencoba meskipun gagal.", 0
+    quote2 db "2. Belajar tidak akan pernah sia-sia.", 0
+    quote3 db "3. Semangatmu adalah kunci suksesmu.", 0
+    quote4 db "4. Jangan takut salah, takutlah untuk tidak mencoba.", 0
+    quote5 db "5. Kerja keras akan terbayar.", 0
+    quotes dd quote1, quote2, quote3, quote4, quote5
+    newline db 10
+    err_msg db "Input tidak valid. Masukkan angka 1-5.", 0xA
+    err_len equ $ - err_msg
+
+section .bss
+    user_input resb 2
+
+section .text
+    global _start
+
+_start:
+    ; --- Tampilkan prompt ---
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, prompt
+    mov edx, 28
+    int 0x80
+
+    ; --- Input user ---
+    mov eax, 3
+    mov ebx, 0
+    mov ecx, user_input
+    mov edx, 2
+    int 0x80
+
+    ; --- Ambil angka dari input ASCII ---
+    movzx eax, byte [user_input]
+    sub eax, '0'          ; ASCII ke angka
+    cmp eax, 1
+    jl .invalid_input     ; jika < 1
+    cmp eax, 5
+    jg .invalid_input     ; jika > 5
+
+    ; --- Ambil alamat quote ---
+    dec eax               ; jadi 0-based index
+    mov esi, [quotes + eax*4] ; ESI = alamat quote
+
+.print_char:
+    mov al, [esi]
+    cmp al, 0
+    je .newline
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, esi
+    mov edx, 1
+    int 0x80
+    inc esi
+    jmp .print_char
+
+.newline:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, newline
+    mov edx, 1
+    int 0x80
+    jmp .exit
+
+.invalid_input:
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, err_msg
+    mov edx, err_len
+    int 0x80
+
+.exit:
+    mov eax, 1
+    xor ebx, ebx
+    int 0x80
